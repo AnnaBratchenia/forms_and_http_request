@@ -3,7 +3,7 @@
     <slot></slot>
   </button>
 </template>
-<style>
+<style scoped>
 button {
   width: 20rem;
   border: none;

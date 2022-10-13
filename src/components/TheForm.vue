@@ -86,6 +86,8 @@
         <label for="other">Other</label>
       </div>
     </div>
+    <rating-control v-model="rating"></rating-control>
+
     <base-button @click="saveForm">Save Data</base-button>
   </base-card>
 </template>
@@ -94,9 +96,10 @@
 <script>
 import BaseCard from "./UI/BaseCard.vue";
 import BaseButton from "./UI/BaseButton.vue";
+import RatingControl from "./RatingControl.vue";
 
 export default {
-  components: { BaseCard, BaseButton },
+  components: { BaseCard, BaseButton, RatingControl },
   data() {
     return {
       userName: "",
@@ -105,15 +108,34 @@ export default {
       interest: [],
       how: "",
       userNameValidity: "pending",
+      rating: null,
     };
   },
   methods: {
     saveForm() {
+      fetch(
+        "https://vue-project-c8624-default-rtdb.firebaseio.com/survey.json",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: this.userName,
+            age: this.userAge,
+            referer: this.referer,
+            interest: this.interest,
+            how: this.how,
+            rating: this.rating,
+          }),
+        }
+      );
       console.log(this.userName);
       console.log(this.userAge);
       console.log(this.referer);
       console.log(this.interest);
       console.log(this.how);
+      console.log(this.rating);
     },
     emptyField() {
       if (this.userName === "") {
