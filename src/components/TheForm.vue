@@ -90,16 +90,16 @@
 
     <base-button @click="saveForm">Save Data</base-button>
   </base-card>
+  <submitted-experience></submitted-experience>
 </template>
 >
 
 <script>
-import BaseCard from "./UI/BaseCard.vue";
-import BaseButton from "./UI/BaseButton.vue";
 import RatingControl from "./RatingControl.vue";
+import SubmittedExperience from "./SubmittedExperience.vue";
 
 export default {
-  components: { BaseCard, BaseButton, RatingControl },
+  components: { RatingControl, SubmittedExperience },
   data() {
     return {
       userName: "",
