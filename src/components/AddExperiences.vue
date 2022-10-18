@@ -30,7 +30,7 @@
           >{{ rating }}</span
         >
       </p>
-      <base-button @click="deleteInfo(id)">Delete</base-button>
+      <base-button @click="deleteInfo(id)" class="btn">Delete</base-button>
     </li>
   </ul>
 </template>
@@ -74,5 +74,8 @@ export default {
 }
 .great {
   background-color: green;
+}
+.btn {
+  margin: 10px auto;
 }
 </style>
